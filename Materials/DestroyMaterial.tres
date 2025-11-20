@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://py0ujcptb2ow"]
+
+[ext_resource type="Shader" uid="uid://bgplljovic71d" path="res://Materials/Shaders/DestroyShader.gdshader" id="1_6hv8k"]
+
+[resource]
+shader = ExtResource("1_6hv8k")
+shader_parameter/CutOff = 0.0

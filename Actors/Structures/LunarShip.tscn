@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4mxifq3oo8tt"]
+
+[ext_resource type="Script" uid="uid://dquvmughd58lx" path="res://Scripts/Structures/LunarShip.cs" id="1_o8jqx"]
+[ext_resource type="Shader" uid="uid://b84oqy1m7apwc" path="res://Materials/Shaders/Shadow.gdshader" id="2_rua1a"]
+[ext_resource type="Texture2D" uid="uid://qsglt0tqorv2" path="res://Sprites/LunarStarship-1.png.png" id="3_rua1a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76350"]
+shader = ExtResource("2_rua1a")
+shader_parameter/CutOff = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g85ml"]
+radius = 15.0
+height = 44.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqx"]
+size = Vector2(46, 136)
+
+[node name="SolarPainelModule" type="Node2D"]
+script = ExtResource("1_o8jqx")
+metadata/_edit_horizontal_guides_ = [-72.0]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_76350")
+texture = ExtResource("3_rua1a")
+
+[node name="StructureSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("3_rua1a")
+
+[node name="PlaceArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_g85ml")
+
+[node name="Cautions" type="Node2D" parent="."]
+position = Vector2(0, -18)
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(0, -53)
+shape = SubResource("RectangleShape2D_o8jqx")

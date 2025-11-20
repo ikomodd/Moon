@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bci3n8o3mytxa"]
+
+[ext_resource type="Script" uid="uid://bv50u4xfx6wn2" path="res://Scripts/Structures/SolarPainelModule.cs" id="1_te845"]
+[ext_resource type="Texture2D" uid="uid://di3yvihb117ih" path="res://Sprites/SolarPainelModuleModel-1.png.png" id="3_g85ml"]
+[ext_resource type="Shader" uid="uid://b84oqy1m7apwc" path="res://Materials/Shaders/Shadow.gdshader" id="3_uyvf0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76350"]
+shader = ExtResource("3_uyvf0")
+shader_parameter/CutOff = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g85ml"]
+radius = 32.5
+height = 90.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g85ml"]
+size = Vector2(32, 21)
+
+[node name="SolarPainelModule" type="Node2D"]
+script = ExtResource("1_te845")
+metadata/_edit_horizontal_guides_ = [-72.0]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_76350")
+texture = ExtResource("3_g85ml")
+
+[node name="StructureSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("3_g85ml")
+
+[node name="PlaceArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceArea"]
+position = Vector2(0, -41.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_g85ml")
+
+[node name="Cautions" type="Node2D" parent="."]
+position = Vector2(0, -18)
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_g85ml")

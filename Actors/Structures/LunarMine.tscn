@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://hdxslq336ppk"]
+
+[ext_resource type="Script" uid="uid://bu5d4qtikwl5o" path="res://Scripts/Structures/LunarMine.cs" id="1_qq6uw"]
+[ext_resource type="Shader" uid="uid://b84oqy1m7apwc" path="res://Materials/Shaders/Shadow.gdshader" id="3_wg7s4"]
+[ext_resource type="Texture2D" uid="uid://b1ab42773kdq1" path="res://Sprites/LunarMinePixelArtModel-1.png.png" id="4_0kpe6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76350"]
+shader = ExtResource("3_wg7s4")
+shader_parameter/CutOff = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lkyx"]
+size = Vector2(190, 117)
+
+[node name="LunarMine" type="Node2D"]
+script = ExtResource("1_qq6uw")
+metadata/_edit_horizontal_guides_ = [-72.0]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_76350")
+texture = ExtResource("4_0kpe6")
+
+[node name="StructureSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("4_0kpe6")
+
+[node name="PlaceArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceArea"]
+position = Vector2(7, 3.5)
+shape = SubResource("RectangleShape2D_2lkyx")
+
+[node name="Cautions" type="Node2D" parent="."]
+position = Vector2(0, -55)
