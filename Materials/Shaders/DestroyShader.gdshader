@@ -4,9 +4,9 @@ uniform sampler2D TextureAlbedo;
 uniform float CutOff : hint_range(0.0, 1.0, 0.1);
 
 void vertex() {
-	
+
 	vec4 TextureColor = texture(TextureAlbedo, UV);
-	
+
 	if (TextureColor.a <= CutOff) COLOR = vec4(0.0);
 	else COLOR = vec4(2.0, 0.0, 0.0, 1.0);
 }

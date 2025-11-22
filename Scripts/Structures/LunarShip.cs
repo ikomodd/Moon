@@ -18,31 +18,31 @@ public partial class LunarShip : Structure
 	{
 		base._EndPlaceAction();
 
-		GameService.GameCamera.Enabled = false;
+		//GameService.GameCamera.Enabled = false;
 
-		Tween StartCameraPositionTween = CreateTween();
-		StartCameraPositionTween.TweenProperty(GameService.GameCamera, "position", GlobalPosition, 5.0f).SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
+		//Tween StartCameraPositionTween = CreateTween();
+		//StartCameraPositionTween.TweenProperty(GameService.GameCamera, "position", GlobalPosition, 5.0f).SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
 
-		Tween StartCameraZoomTween = CreateTween();
-		StartCameraZoomTween.TweenProperty(GameService.GameCamera.GameCamera, "zoom", new Vector2(5.0f, 5.0f), 5.0f).SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
+		//Tween StartCameraZoomTween = CreateTween();
+		//StartCameraZoomTween.TweenProperty(GameService.GameCamera.GameCamera, "zoom", new Vector2(5.0f, 5.0f), 5.0f).SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
 
-		StartCameraPositionTween.Play();
-		StartCameraZoomTween.Play();
+		//StartCameraPositionTween.Play();
+		//StartCameraZoomTween.Play();
 
-		StartCameraPositionTween.Finished += () =>
-		{
+		//StartCameraPositionTween.Finished += () =>
+		//{
 			// Animaçao do inicio do jogo aqui <<
 
-			Tween EndCameraZoomTween = CreateTween();
-			EndCameraZoomTween.TweenProperty(GameService.GameCamera.GameCamera, "zoom", new Vector2(1.0f, 1.0f), 5.0f).SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
+			//Tween EndCameraZoomTween = CreateTween();
+			//EndCameraZoomTween.TweenProperty(GameService.GameCamera.GameCamera, "zoom", new Vector2(1.0f, 1.0f), 5.0f).SetTrans(Tween.TransitionType.Quint).SetEase(Tween.EaseType.InOut);
 
-			EndCameraZoomTween.Play();
+			//EndCameraZoomTween.Play();
 
-			EndCameraZoomTween.Finished += () =>
-			{
-				GameService.GameCamera.Enabled = true;
-			};
-		};
+			//EndCameraZoomTween.Finished += () =>
+			//{
+				//GameService.GameCamera.Enabled = true;
+			//};
+		//};
 	}
 
 	//

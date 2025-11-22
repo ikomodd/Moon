@@ -160,12 +160,23 @@ public partial class Game : Node2D
 
 	// Storage
 
-	public void AddInStorage(string MaterialName, int Quantity)
-	{
-		if (Storage.ContainsKey(MaterialName)) Storage[MaterialName] += Quantity;
-		else Storage.Add(MaterialName, Quantity);
+	public delegate void MaterialAddedHandler(string Name, long Quantity, bool First);
+	public event MaterialAddedHandler MaterialAdded;
 
-		GetNode<Gui>("Gui").GetNode<RightBar>("RightBar").UpdateStorageLabel(MaterialName, Storage[MaterialName]);
+	public void AddInStorage(string MaterialName, long Quantity)
+	{
+		bool First = false;
+
+		if (Storage.ContainsKey(MaterialName)) Storage[MaterialName] += Quantity;
+		else
+		{
+			Storage.Add(MaterialName, Quantity);
+			First = true;
+		}
+
+		GD.Print("Nokay");
+
+		MaterialAdded?.Invoke(MaterialName, Quantity, First);
 	}
 
 	//

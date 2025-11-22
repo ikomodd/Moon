@@ -69,17 +69,17 @@ public partial class RightBar : Control
 		}
 		else
 		{
-			PackedScene MaterialLabelTscn = GD.Load<PackedScene>("res://Actors/Gui/material_label.tscn");
+			//PackedScene MaterialLabelTscn = GD.Load<PackedScene>("res://Actors/Gui/material_label.tscn");
 
-			ValueLabel MaterialLabel = MaterialLabelTscn.Instantiate<ValueLabel>();
-			StoragePanel.GetNode<VBoxContainer>("VBoxContainer").AddChild(MaterialLabel);
+			//ValueLabel MaterialLabel = MaterialLabelTscn.Instantiate<ValueLabel>();
+			//StoragePanel.GetNode<VBoxContainer>("VBoxContainer").AddChild(MaterialLabel);
 
-			MaterialLabel.Name = MaterialName + "Label";
-			MaterialLabel.Visible = true;
+			//MaterialLabel.Name = MaterialName + "Label";
+			//MaterialLabel.Visible = true;
 
-			MaterialLabel.ValueName = MaterialName;
-			MaterialLabel.Value = Quantity;
-			MaterialLabel.LabelUpdate();
+			//MaterialLabel.ValueName = MaterialName;
+			//MaterialLabel.Value = Quantity;
+			//MaterialLabel.LabelUpdate();
 		}
 	}
 

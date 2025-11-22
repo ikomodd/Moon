@@ -1,9 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://bdpj0u8bnqstv"]
+[gd_scene load_steps=40 format=3 uid="uid://bdpj0u8bnqstv"]
 
 [ext_resource type="Script" uid="uid://pktl6c6l1h7m" path="res://Scripts/Gui/Gui.cs" id="1_qyd3e"]
 [ext_resource type="Script" uid="uid://demartdj7c68n" path="res://Scripts/Gui/ValueLabel.cs" id="2_3w84o"]
 [ext_resource type="StyleBox" uid="uid://d068s8ljobos7" path="res://TresArquives/Panel.tres" id="2_bm56d"]
-[ext_resource type="Script" uid="uid://b8ochu1lj6lnh" path="res://Scripts/Gui/BaseGUIs/StructurePanel.cs" id="2_c5g4q"]
+[ext_resource type="Script" uid="uid://cwk31rdgpnnp7" path="res://Scripts/Gui/ShipPanel.cs" id="2_c5g4q"]
 [ext_resource type="Script" uid="uid://b8g83ot8fbob4" path="res://Scripts/Gui/RightBar.cs" id="2_n5m23"]
 [ext_resource type="Script" uid="uid://4ykwjlusybjq" path="res://Scripts/Gui/UpperBar.cs" id="2_xnb2j"]
 [ext_resource type="FontFile" uid="uid://fn4ymli2371a" path="res://Fonts/PixelifySans-Regular.ttf" id="3_bf1fa"]
@@ -52,6 +52,22 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nc5vy"]
 bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_705sf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls8gd"]
+bg_color = Color(0.221853, 0.602112, 0.251261, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea75s"]
+bg_color = Color(0.144125, 0.404966, 0.16334, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -225,6 +241,25 @@ offset_bottom = -8.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nc5vy")
 
+[node name="SellButton" type="Button" parent="StructureGUIs/ShipPanel/Panel/ShipPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -48.0
+offset_right = 68.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_705sf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ls8gd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ea75s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ls8gd")
+text = "Launch"
+
 [node name="ShopPanel" type="Panel" parent="StructureGUIs/ShipPanel/Panel"]
 layout_mode = 1
 anchors_preset = 9
@@ -247,7 +282,6 @@ vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StructureGUIs/ShipPanel/Panel/ShopPanel/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="UpperBar" type="Control" parent="."]
 layout_mode = 3

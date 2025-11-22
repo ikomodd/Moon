@@ -3,6 +3,8 @@ using System;
 
 public partial class StructurePanel : Control
 {
+	public Game GameService = null;
+
 	Button ExitButton = null;
 
 	//
@@ -12,6 +14,9 @@ public partial class StructurePanel : Control
 		base._Ready();
 
 		ExitButton = GetNode<Button>("Panel/ExitButton");
+
+
+		GameService = GetTree().CurrentScene as Game;
 
 		ExitButton.Pressed += _Exit;
 	}

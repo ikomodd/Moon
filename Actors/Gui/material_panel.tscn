@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://tww2y0kvnf3h"]
+
+[ext_resource type="Script" uid="uid://x10wmabqopue" path="res://Scripts/Gui/MaterialPanel.cs" id="1_0pe0h"]
+[ext_resource type="Script" uid="uid://demartdj7c68n" path="res://Scripts/Gui/ValueLabel.cs" id="2_0hscd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls8gd"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MaterialPanel" type="Control"]
+custom_minimum_size = Vector2(296, 32)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_0pe0h")
+
+[node name="QuantitySlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -32.0
+offset_right = 148.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Quantity" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -16.0
+offset_right = -100.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "0"
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Max" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = -16.0
+offset_right = 148.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "1000"
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 296.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ls8gd")
+
+[node name="Name" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 168.0
+offset_bottom = 32.0
+mouse_filter = 2
+text = "Nome do Item"
+vertical_alignment = 1
+
+[node name="Money" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 288.0
+offset_bottom = 32.0
+mouse_filter = 1
+text = "ICU$ 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("2_0hscd")
+ValueName = "ICU$"
